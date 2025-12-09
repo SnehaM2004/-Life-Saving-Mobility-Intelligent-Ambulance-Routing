@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes>
+    <!--
+      1) Define the ambulance emergency vehicle type. This vType is self-closed correctly.
+      - Ignores red lights and other vehicles
+      - Aggressive lane changing
+      - Maximum impatience to keep moving
+    -->
+    <vType id="ambulanceType"
+           vClass="emergency"
+           accel="3.0" decel="6.0"
+           sigma="0"
+           length="5.0" minGap="2.5"
+           maxSpeed="55.0"
+           color="1,0,0"
+           guiShape="emergency"
+           laneChangeModel="LC2013"
+           lcAssertive="100"
+           lcSpeedGain="100"
+           impatience="1.0"
+           jmDriveAfterRedTime="1000"
+           jmIgnoreFoeProb="1.0"
+           jmIgnoreJunctionFoeProb="1.0"/>
+
+    <!--
+      2) Define the ambulance vehicle and its route.
+      - Ensure you replace the edge IDs below with the actual, connected edges in your network.
+    -->
+    <vehicle id="ambulance_0" type="ambulanceType" depart="10">
+        <route edges="840848456#1 -1201246968#0"/>
+    </vehicle>
+</routes>
